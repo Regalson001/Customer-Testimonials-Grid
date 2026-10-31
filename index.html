@@ -1,543 +1,283 @@
-```css
-/* ========================================
-   1. RESET AND DESIGN VARIABLES
-======================================== */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --color-background: #f5f7fb;
-  --color-surface: #ffffff;
-  --color-primary: #172554;
-  --color-accent: #e8a23a;
-  --color-text: #273449;
-  --color-muted: #718096;
-  --color-border: #e5eaf1;
-  --color-success: #15803d;
-
-  --shadow-card:
-    0 12px 32px rgba(23, 37, 84, 0.06);
-
-  --shadow-card-hover:
-    0 20px 42px rgba(23, 37, 84, 0.11);
-
-  --radius-card: 18px;
-  --transition-standard: 0.25s ease;
-}
-
-/* ========================================
-   2. BASE STYLES
-======================================== */
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-
-  font-family:
-    Inter,
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  color: var(--color-text);
-  background-color: var(--color-background);
-
-  line-height: 1.7;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-}
-
-/* ========================================
-   3. SITE HEADER
-======================================== */
-
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-
-  padding: 22px clamp(20px, 5vw, 80px);
-
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.brand {
-  color: var(--color-primary);
-
-  font-size: 1.7rem;
-  font-weight: 850;
-  letter-spacing: -1px;
-
-  text-decoration: none;
-}
-
-.brand span {
-  color: var(--color-accent);
-}
-
-.header-label {
-  color: var(--color-muted);
-
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-/* ========================================
-   4. MAIN CONTENT
-======================================== */
-
-main {
-  flex: 1;
-}
-
-.testimonials-section {
-  width: 100%;
-  max-width: 1200px;
-
-  margin: 0 auto;
-  padding: 76px 28px;
-}
-
-/* ========================================
-   5. SECTION HEADING
-======================================== */
-
-.section-heading {
-  max-width: 700px;
-
-  margin: 0 auto 48px;
-
-  text-align: center;
-}
-
-.eyebrow {
-  margin-bottom: 14px;
-
-  color: var(--color-accent);
-
-  font-size: 0.75rem;
-  font-weight: 850;
-  letter-spacing: 2px;
-}
-
-.section-heading h1 {
-  color: var(--color-primary);
-
-  font-size: clamp(2.3rem, 5vw, 3.8rem);
-  font-weight: 850;
-  line-height: 1.15;
-  letter-spacing: -2px;
-}
-
-.section-heading h1 span {
-  color: var(--color-accent);
-}
-
-.section-description {
-  max-width: 540px;
-
-  margin: 20px auto 0;
-
-  color: var(--color-muted);
-  font-size: 1rem;
-}
-
-/* ========================================
-   6. TESTIMONIALS FLEX CONTAINER
-======================================== */
-
-.testimonials-grid {
-  display: flex;
-  flex-wrap: wrap;
-
-  justify-content: center;
-  align-items: stretch;
-
-  gap: 24px;
-}
-
-/* ========================================
-   7. TESTIMONIAL CARD
-======================================== */
-
-.testimonial-card {
-  flex: 1 1 280px;
-
-  display: flex;
-  flex-direction: column;
-
-  min-width: 0;
-  max-width: 370px;
-  padding: 26px;
-
-  background-color: var(--color-surface);
-
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-card);
-
-  box-shadow: var(--shadow-card);
-
-  transition:
-    transform var(--transition-standard),
-    box-shadow var(--transition-standard),
-    border-color var(--transition-standard);
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
-
-  border-color: #cbd5e1;
-
-  box-shadow: var(--shadow-card-hover);
-}
-
-/* ========================================
-   8. FEATURED TESTIMONIAL
-======================================== */
-
-.testimonial-card--featured {
-  flex-grow: 2;
-  flex-basis: 420px;
-
-  max-width: 100%;
-
-  background-color: var(--color-primary);
-
-  border-color: var(--color-primary);
-}
-
-.testimonial-card--featured .customer-name {
-  color: #ffffff;
-}
-
-.testimonial-card--featured .customer-role {
-  color: #cbd5e1;
-}
-
-.testimonial-card--featured .testimonial-content blockquote {
-  color: #f8fafc;
-}
-
-.testimonial-card--featured .testimonial-footer {
-  color: #cbd5e1;
-
-  border-top-color: rgba(255, 255, 255, 0.18);
-}
-
-.testimonial-card--featured .quote-mark {
-  color: var(--color-accent);
-}
-
-/* ========================================
-   9. CUSTOMER PROFILE
-======================================== */
-
-.card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-
-  margin-bottom: 24px;
-}
-
-.customer-profile {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-
-  min-width: 0;
-}
-
-.customer-avatar {
-  width: 56px;
-  height: 56px;
-
-  flex-shrink: 0;
-
-  object-fit: cover;
-
-  border: 3px solid #eef2f7;
-  border-radius: 50%;
-}
-
-.testimonial-card--featured .customer-avatar {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.customer-details {
-  min-width: 0;
-}
-
-.customer-name {
-  color: var(--color-primary);
-
-  font-size: 0.95rem;
-  font-weight: 800;
-  line-height: 1.4;
-
-  overflow-wrap: anywhere;
-}
-
-.customer-role {
-  margin-top: 4px;
-
-  color: var(--color-muted);
-
-  font-size: 0.78rem;
-  line-height: 1.5;
-}
-
-/* ========================================
-   10. DECORATIVE QUOTATION MARK
-======================================== */
-
-.quote-mark {
-  flex-shrink: 0;
-
-  color: #dce3ef;
-
-  font-family: Georgia, serif;
-  font-size: 4rem;
-  font-weight: 800;
-  line-height: 0.8;
-}
-
-/* ========================================
-   11. TESTIMONIAL CONTENT
-======================================== */
-
-.testimonial-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  flex: 1;
-}
-
-.rating {
-  margin-bottom: 16px;
-
-  color: var(--color-accent);
-
-  font-size: 0.95rem;
-  letter-spacing: 3px;
-}
-
-.testimonial-content blockquote {
-  color: var(--color-text);
-
-  font-size: 0.92rem;
-  line-height: 1.85;
-
-  overflow-wrap: anywhere;
-}
-
-/* ========================================
-   12. TESTIMONIAL FOOTER
-======================================== */
-
-.testimonial-footer {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  margin-top: auto;
-  padding-top: 24px;
-
-  color: var(--color-muted);
-
-  border-top: 1px solid var(--color-border);
-
-  font-size: 0.75rem;
-  font-weight: 650;
-}
-
-.verified-indicator {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 18px;
-  height: 18px;
-
-  color: #ffffff;
-  background-color: var(--color-success);
-
-  border-radius: 50%;
-
-  font-size: 0.7rem;
-  font-weight: 800;
-}
-
-.testimonial-card--featured .verified-indicator {
-  color: var(--color-primary);
-  background-color: var(--color-accent);
-}
-
-/* ========================================
-   13. CLOSING MESSAGE
-======================================== */
-
-.closing-message {
-  margin-top: 48px;
-
-  text-align: center;
-}
-
-.closing-message p {
-  color: var(--color-muted);
-
-  font-size: 0.9rem;
-  font-style: italic;
-}
-
-/* ========================================
-   14. SITE FOOTER
-======================================== */
-
-.site-footer {
-  padding: 24px 20px;
-
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-}
-
-.site-footer p {
-  color: var(--color-muted);
-
-  font-size: 0.8rem;
-  text-align: center;
-}
-
-/* ========================================
-   15. TABLET RESPONSIVENESS
-======================================== */
-
-@media (max-width: 768px) {
-  .testimonials-section {
-    padding: 56px 22px;
-  }
-
-  .section-heading {
-    margin-bottom: 36px;
-  }
-
-  .testimonials-grid {
-    gap: 20px;
-  }
-
-  .testimonial-card {
-    flex-basis: 260px;
-    padding: 24px;
-  }
-
-  .testimonial-card--featured {
-    flex-basis: 100%;
-  }
-}
-
-/* ========================================
-   16. MOBILE RESPONSIVENESS
-======================================== */
-
-@media (max-width: 480px) {
-  .site-header {
-    padding: 18px 20px;
-  }
-
-  .brand {
-    font-size: 1.45rem;
-  }
-
-  .header-label {
-    font-size: 0.62rem;
-    letter-spacing: 1px;
-  }
-
-  .testimonials-section {
-    padding: 42px 16px;
-  }
-
-  .section-heading h1 {
-    letter-spacing: -1.2px;
-  }
-
-  .section-description {
-    font-size: 0.92rem;
-  }
-
-  .testimonials-grid {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 18px;
-  }
-
-  .testimonial-card,
-  .testimonial-card--featured {
-    flex: 1 1 auto;
-
-    width: 100%;
-    max-width: none;
-    padding: 22px;
-  }
-
-  .customer-avatar {
-    width: 50px;
-    height: 50px;
-  }
-
-  .customer-name {
-    font-size: 0.9rem;
-  }
-
-  .testimonial-content blockquote {
-    font-size: 0.88rem;
-  }
-
-  .closing-message {
-    margin-top: 32px;
-  }
-}
-
-/* ========================================
-   17. REDUCED MOTION ACCESSIBILITY
-======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="A responsive customer testimonials grid built with semantic HTML5 and modern CSS3."
+  >
+
+  <title>Customer Testimonials Grid | Client Stories</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Elevate home">
+      elevate<span>.</span>
+    </a>
+
+    <span class="header-label">CLIENT STORIES</span>
+  </header>
+
+  <main>
+    <section class="testimonials-section" aria-labelledby="section-title">
+
+      <div class="section-heading">
+        <p class="eyebrow">TRUSTED BY OUR COMMUNITY</p>
+
+        <h1 id="section-title">
+          Real people.<br>
+          <span>Real experiences.</span>
+        </h1>
+
+        <p class="section-description">
+          Discover what our clients say about working with us.
+          Their experiences inspire everything we do.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <!-- Featured testimonial -->
+        <article class="testimonial-card testimonial-card--featured">
+
+          <div class="card-top">
+            <div class="customer-profile">
+              <img
+                class="customer-avatar"
+                src="https://i.pravatar.cc/120?img=47"
+                alt="Portrait of Olivia Bennett"
+                width="60"
+                height="60"
+              >
+
+              <div class="customer-details">
+                <h2 class="customer-name">Olivia Bennett</h2>
+                <p class="customer-role">Marketing Director</p>
+              </div>
+            </div>
+
+            <span class="quote-mark" aria-hidden="true">“</span>
+          </div>
+
+          <div class="testimonial-content">
+            <div class="rating" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+
+            <blockquote>
+              <p>
+                Working with this team completely transformed how
+                we approach our digital presence. The attention to
+                detail, thoughtful communication, and quality of
+                delivery exceeded our expectations.
+              </p>
+            </blockquote>
+          </div>
+
+          <footer class="testimonial-footer">
+            <span class="verified-indicator" aria-hidden="true">✓</span>
+            <span>Verified client</span>
+          </footer>
+
+        </article>
+
+        <!-- Testimonial 2 -->
+        <article class="testimonial-card">
+
+          <div class="card-top">
+            <div class="customer-profile">
+              <img
+                class="customer-avatar"
+                src="https://i.pravatar.cc/120?img=12"
+                alt="Portrait of Daniel Carter"
+                width="60"
+                height="60"
+                loading="lazy"
+              >
+
+              <div class="customer-details">
+                <h2 class="customer-name">Daniel Carter</h2>
+                <p class="customer-role">Startup Founder</p>
+              </div>
+            </div>
+
+            <span class="quote-mark" aria-hidden="true">“</span>
+          </div>
+
+          <div class="testimonial-content">
+            <div class="rating" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+
+            <blockquote>
+              <p>
+                The entire experience felt professional from start
+                to finish. Everything was clear, organized, and
+                delivered with impressive attention to detail.
+              </p>
+            </blockquote>
+          </div>
+
+          <footer class="testimonial-footer">
+            <span class="verified-indicator" aria-hidden="true">✓</span>
+            <span>Verified client</span>
+          </footer>
+
+        </article>
+
+        <!-- Testimonial 3 -->
+        <article class="testimonial-card">
+
+          <div class="card-top">
+            <div class="customer-profile">
+              <img
+                class="customer-avatar"
+                src="https://i.pravatar.cc/120?img=44"
+                alt="Portrait of Amina Hassan"
+                width="60"
+                height="60"
+                loading="lazy"
+              >
+
+              <div class="customer-details">
+                <h2 class="customer-name">Amina Hassan</h2>
+                <p class="customer-role">Product Designer</p>
+              </div>
+            </div>
+
+            <span class="quote-mark" aria-hidden="true">“</span>
+          </div>
+
+          <div class="testimonial-content">
+            <div class="rating" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+
+            <blockquote>
+              <p>
+                What impressed me most was the ability to turn
+                ideas into a clean, thoughtful experience. The
+                final result was both practical and beautiful.
+              </p>
+            </blockquote>
+          </div>
+
+          <footer class="testimonial-footer">
+            <span class="verified-indicator" aria-hidden="true">✓</span>
+            <span>Verified client</span>
+          </footer>
+
+        </article>
+
+        <!-- Testimonial 4 -->
+        <article class="testimonial-card">
+
+          <div class="card-top">
+            <div class="customer-profile">
+              <img
+                class="customer-avatar"
+                src="https://i.pravatar.cc/120?img=33"
+                alt="Portrait of Michael Brooks"
+                width="60"
+                height="60"
+                loading="lazy"
+              >
+
+              <div class="customer-details">
+                <h2 class="customer-name">Michael Brooks</h2>
+                <p class="customer-role">Business Consultant</p>
+              </div>
+            </div>
+
+            <span class="quote-mark" aria-hidden="true">“</span>
+          </div>
+
+          <div class="testimonial-content">
+            <div class="rating" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+
+            <blockquote>
+              <p>
+                Communication was excellent, the process was
+                straightforward, and the finished work reflected
+                a strong understanding of our needs.
+              </p>
+            </blockquote>
+          </div>
+
+          <footer class="testimonial-footer">
+            <span class="verified-indicator" aria-hidden="true">✓</span>
+            <span>Verified client</span>
+          </footer>
+
+        </article>
+
+        <!-- Testimonial 5 -->
+        <article class="testimonial-card">
+
+          <div class="card-top">
+            <div class="customer-profile">
+              <img
+                class="customer-avatar"
+                src="https://i.pravatar.cc/120?img=49"
+                alt="Portrait of Sophia Williams"
+                width="60"
+                height="60"
+                loading="lazy"
+              >
+
+              <div class="customer-details">
+                <h2 class="customer-name">Sophia Williams</h2>
+                <p class="customer-role">Creative Strategist</p>
+              </div>
+            </div>
+
+            <span class="quote-mark" aria-hidden="true">“</span>
+          </div>
+
+          <div class="testimonial-content">
+            <div class="rating" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+
+            <blockquote>
+              <p>
+                A refreshing experience with a team that values
+                quality and consistency. I would gladly recommend
+                their work to anyone looking for a polished result.
+              </p>
+            </blockquote>
+          </div>
+
+          <footer class="testimonial-footer">
+            <span class="verified-indicator" aria-hidden="true">✓</span>
+            <span>Verified client</span>
+          </footer>
+
+        </article>
+
+      </div>
+
+      <div class="closing-message">
+        <p>Every great partnership begins with trust.</p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      &copy; 2026 Elevate. Designed with care.
+    </p>
+  </footer>
+</body>
+</html>
 ```
+
